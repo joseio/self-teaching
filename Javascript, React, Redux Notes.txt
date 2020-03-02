@@ -1,0 +1,48 @@
+06/10/19:
+Redux Tutorial Notes:
+
+- Redux is a fancy state machine
+- Redux functions (aka Reducers) must be pure, ex:
+	def square(x):
+		return x * x
+
+- Pure = not making any method calls or modify input arg
+	+ MUST be pure b/c states are OBJECTS
+	+ Modifying object value !modify reference...so state unchanged
+
+- Reducers calc next state based on prev state & action dispatched
+
+- subsribe() is for child components to update once the store changes
+	+ ...but Redux's 'connect()' takes care of all that 
+
+- Redux flow: 
+	1. Click a component
+	2. That creates an action
+	3. Dispatch the action
+	4. Store runs reducer (to det. next state)
+
+- mapStateToProps is run ANYTIME store modifies state
+
+- mapDispatchToProps run ONCE during init to est. button handlers 
+
+-----------------------------------
+
+React Notes:
+- render() called asynchronously whenever virtual DOM != actual DOM
+
+- Most Popular Lifecycle hooks:
+	+ Note: Can ONLY be used in classes (not stateless functional components)!
+	1. Mount:
+		a. constructor (good place to init state/props)
+		b. render 
+		c. componentDidMount (good place for ajax calls)
+	2. Update:
+		a. render  b. componentDidUpdate
+	3. Unmount:
+		a. componentDidUnmount
+
+- When the parent's state is changed, she bubbles this change down to all children, causing them all to re-render() and continue other lifecycle hooks
+
+Javascript Notes:
+- In Javascript, setting two arrays equal to each other sets REFERENCES equals
+	+ Need to use b = [...a] to clone an array
